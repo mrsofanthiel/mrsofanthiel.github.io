@@ -3,139 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading Screen</title>
+    <title>Desktop Environment</title>
     <style>
-        /* Basic reset and body styling */
-        body, html {
+        body {
             margin: 0;
             padding: 0;
-            height: 100%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
+            background: #87CEEB; /* Sky blue background */
+            overflow: hidden;
             font-family: Arial, sans-serif;
-            overflow: hidden; /* Prevent scrollbars during the transition */
         }
-        
-        /* Container for the loading screen */
-        .loading-container {
-            display: flex;
-            flex-direction: column; /* Stack spinner and text vertically */
-            justify-content: center;
-            align-items: center;
-            width: 400px; /* Initial width */
-            height: 200px; /* Initial height */
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            padding: 30px; /* Padding */
+
+        #desktop {
             position: relative;
-            transition: width 1s ease, height 1s ease; /* Smooth transition for resizing */
-        }
-        
-        /* Loading spinner */
-        .spinner {
-            border: 8px solid #f3f3f3;
-            border-top: 8px solid #3498db;
-            border-radius: 50%;
-            width: 60px; /* Spinner size */
-            height: 60px; /* Spinner size */
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px; /* Margin between spinner and text */
-            opacity: 1;
-            transition: opacity 1s ease; /* Smooth transition for fading out */
+            width: 100vw;
+            height: 100vh;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Text below the spinner */
-        .loading-text {
-            font-size: 18px; /* Font size */
-            color: #333;
-            opacity: 1;
-            transition: opacity 1s ease; /* Smooth transition for fading out */
-        }
-
-        /* Expanded state for the container */
-        .expanded {
-            width: 100vw; /* Full viewport width */
-            height: 100vh; /* Full viewport height */
-            border-radius: 0; /* Remove border-radius for full-screen effect */
-            padding: 0; /* Remove padding */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: none; /* Remove box-shadow */
-            background-color: #ffffff;
-            position: relative; /* Position relative for the bars positioning */
-        }
-
-        /* Blue bar styling */
-        .blue-bar {
+        #app-menu {
             position: absolute;
             top: 0;
-            left: -25%; /* Start off-screen to the left */
-            height: 100vh;
-            width: 25vw; /* Takes up 1/4th of the viewport width */
-            background-color: #3498db;
-            transition: left 1s ease; /* Smooth sliding effect */
-            z-index: 2; /* Higher z-index to appear in front */
-        }
-
-        /* Gray bar styling */
-        .gray-bar {
-            position: absolute;
-            bottom: -16.67%; /* Start off-screen to the bottom */
             left: 0;
-            height: 16.67vh; /* Takes up 1/6th of the viewport height */
-            width: 100vw;
-            background-color: #cccccc;
-            transition: bottom 1s ease; /* Smooth sliding effect */
-            z-index: 1; /* Lower z-index to be behind the blue bar */
+            padding: 10px;
         }
 
-        /* Show blue bar when it slides in */
-        .blue-bar.visible {
-            left: 0; /* Slide in to occupy space */
+        #menu-button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
         }
 
-        /* Show gray bar when it slides in */
-        .gray-bar.visible {
-            bottom: 0; /* Slide in to occupy space */
+        #menu {
+            display: none;
+            position: absolute;
+            top: 30px;
+            left: 0;
+            background: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #menu li {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #menu li:hover {
+            background: #eee;
+        }
+
+        .window {
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            border: 1px solid #000;
+            background: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        .window-header {
+            background: #0078D7;
+            color: #fff;
+            padding: 10px;
+            cursor: move;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .window-content {
+            padding: 10px;
+        }
+
+        .close-button {
+            background: #f00;
+            color: #fff;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="loading-container" id="loading-container">
-        <div class="spinner"></div>
-        <div class="loading-text">Loading...</div>
+    <div id="desktop">
+        <div id="app-menu">
+            <button id="menu-button">☰</button>
+            <div id="menu">
+                <ul>
+                    <li><a href="#">My Computer</a></li>
+                    <li><a href="#">Recycle Bin</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="window" id="window1" style="left: 50px; top: 50px;">
+            <div class="window-header">
+                <span>Window 1</span>
+                <button class="close-button">×</button>
+            </div>
+            <div class="window-content">
+                <p>This is window 1 content.</p>
+            </div>
+        </div>
+
+        <div class="window" id="window2" style="left: 200px; top: 200px;">
+            <div class="window-header">
+                <span>Window 2</span>
+                <button class="close-button">×</button>
+            </div>
+            <div class="window-content">
+                <p>This is window 2 content.</p>
+            </div>
+        </div>
     </div>
-    <div class="blue-bar" id="blue-bar"></div>
-    <div class="gray-bar" id="gray-bar"></div>
 
     <script>
-        // JavaScript to handle the transition after 3 seconds
-        setTimeout(() => {
-            const container = document.getElementById('loading-container');
-            const blueBar = document.getElementById('blue-bar');
-            const grayBar = document.getElementById('gray-bar');
+        // Function to handle dragging of windows
+        function makeDraggable(element) {
+            let isDragging = false;
+            let offsetX, offsetY;
 
-            container.querySelector('.spinner').style.opacity = '0';
-            container.querySelector('.loading-text').style.opacity = '0';
-            container.classList.add('expanded');
+            element.querySelector('.window-header').addEventListener('mousedown', (e) => {
+                isDragging = true;
+                offsetX = e.clientX - element.getBoundingClientRect().left;
+                offsetY = e.clientY - element.getBoundingClientRect().top;
+            });
 
-            // Wait for the fading transition to complete before sliding in the bars
-            setTimeout(() => {
-                blueBar.classList.add('visible');
-                grayBar.classList.add('visible');
-            }, 1000); // Delay to match the fade-out duration
-        }, 3000); // 3000 milliseconds = 3 seconds
+            window.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    element.style.left = `${e.clientX - offsetX}px`;
+                    element.style.top = `${e.clientY - offsetY}px`;
+                }
+            });
+
+            window.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+        }
+
+        // Initialize draggable windows
+        document.querySelectorAll('.window').forEach(makeDraggable);
+
+        // Handle app menu toggle
+        document.getElementById('menu-button').addEventListener('click', () => {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Handle close button
+        document.querySelectorAll('.close-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.target.closest('.window').remove();
+            });
+        });
     </script>
 </body>
 </html>
