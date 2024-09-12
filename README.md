@@ -14,7 +14,7 @@ Duh, you can find this file in a lot of places, just search up "eaglercraft" on 
 The Project was made by lax1dude.
 ### Eaglercraft Multiplayer Instructions
 Eaglercraft supports Multiplayer. You can activate it by changing the network settings, to include this relay:
-'wss://eaglerrelay.glitch.me/'
+`wss://eaglerrelay.glitch.me/`
 Once you add this, servers will appear in the server list ~~and lan games will work.~~ no they don't, I'm not sure why.
 Eventually I'll update the website to include these instructions in a more convenient place.
 ## Epiccues
