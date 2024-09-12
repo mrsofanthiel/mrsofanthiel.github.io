@@ -1,12 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Screen</title>
+    <style>
+        /* Basic reset and body styling */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Prevent scrollbars during the transition */
+        }
+        
+        /* Container for the loading screen */
+        .loading-container {
+            display: flex;
+            flex-direction: column; /* Stack spinner and text vertically */
+            justify-content: center;
+            align-items: center;
+            width: 400px; /* Initial width */
+            height: 200px; /* Initial height */
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 30px; /* Padding */
+            position: relative;
+            transition: width 1s ease, height 1s ease; /* Smooth transition for resizing */
+        }
+        
+        /* Loading spinner */
+        .spinner {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 60px; /* Spinner size */
+            height: 60px; /* Spinner size */
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px; /* Margin between spinner and text */
+            opacity: 1;
+            transition: opacity 1s ease; /* Smooth transition for fading out */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Text below the spinner */
+        .loading-text {
+            font-size: 18px; /* Font size */
+            color: #333;
+            opacity: 1;
+            transition: opacity 1s ease; /* Smooth transition for fading out */
+        }
+
+        /* Expanded state for the container */
+        .expanded {
+            width: 100vw; /* Full viewport width */
+            height: 100vh; /* Full viewport height */
+            border-radius: 0; /* Remove border-radius for full-screen effect */
+            padding: 0; /* Remove padding */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: none; /* Remove box-shadow */
+            background-color: #ffffff;
+            position: relative; /* Position relative for the bars positioning */
+        }
+
+        /* Blue bar styling */
+        .blue-bar {
+            position: absolute;
+            top: 0;
+            left: -25%; /* Start off-screen to the left */
+            height: 100vh;
+            width: 25vw; /* Takes up 1/4th of the viewport width */
+            background-color: #3498db;
+            transition: left 1s ease; /* Smooth sliding effect */
+            z-index: 2; /* Higher z-index to appear in front */
+        }
+
+        /* Gray bar styling */
+        .gray-bar {
+            position: absolute;
+            bottom: -16.67%; /* Start off-screen to the bottom */
+            left: 0;
+            height: 16.67vh; /* Takes up 1/6th of the viewport height */
+            width: 100vw;
+            background-color: #cccccc;
+            transition: bottom 1s ease; /* Smooth sliding effect */
+            z-index: 1; /* Lower z-index to be behind the blue bar */
+        }
+
+        /* Show blue bar when it slides in */
+        .blue-bar.visible {
+            left: 0; /* Slide in to occupy space */
+        }
+
+        /* Show gray bar when it slides in */
+        .gray-bar.visible {
+            bottom: 0; /* Slide in to occupy space */
+        }
+    </style>
 </head>
 <body>
+    <div class="loading-container" id="loading-container">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading...</div>
+    </div>
+    <div class="blue-bar" id="blue-bar"></div>
+    <div class="gray-bar" id="gray-bar"></div>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+    <script>
+        // JavaScript to handle the transition after 3 seconds
+        setTimeout(() => {
+            const container = document.getElementById('loading-container');
+            const blueBar = document.getElementById('blue-bar');
+            const grayBar = document.getElementById('gray-bar');
 
+            container.querySelector('.spinner').style.opacity = '0';
+            container.querySelector('.loading-text').style.opacity = '0';
+            container.classList.add('expanded');
+
+            // Wait for the fading transition to complete before sliding in the bars
+            setTimeout(() => {
+                blueBar.classList.add('visible');
+                grayBar.classList.add('visible');
+            }, 1000); // Delay to match the fade-out duration
+        }, 3000); // 3000 milliseconds = 3 seconds
+    </script>
 </body>
 </html>
