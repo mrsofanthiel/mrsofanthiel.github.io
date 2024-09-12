@@ -16,3 +16,6 @@ The Project was made by lax1dude.
 This is a rehost of a very good scratch mod. Yes, it's existence has been invalidated by Turbowarp, but it holds a special place in my heart for causing so much of the games going around in school.
 This rehost serves just to make it more accessible in schools where the site may be blocked for "games."
 This project was made by sheeptester and can be found [here.](https://sheeptester.github.io/scratch-gui/)
+## AAAAXY
+This is a link to the online hosted AAAAXY Game that divVerent hosted. It's really good, you should play this game. (Not hosted on this website)
+The Project was made by divVerent and can be found [here.](https://github.com/divVerent/aaaaxy)
