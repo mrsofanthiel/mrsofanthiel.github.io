@@ -3,168 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desktop Environment</title>
+    <title>Sofanthiel's Hub</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
-            background: #87CEEB; /* Sky blue background */
-            overflow: hidden;
             font-family: Arial, sans-serif;
-        }
-
-        #desktop {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-        }
-
-        #app-menu {
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 10px;
-        }
-
-        #menu-button {
-            background: #333;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        #menu {
-            display: none;
-            position: absolute;
-            top: 30px;
-            left: 0;
-            background: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        #menu ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        #menu li {
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        #menu li:hover {
-            background: #eee;
-        }
-
-        .window {
-            position: absolute;
-            width: 300px;
-            height: 200px;
-            border: 1px solid #000;
-            background: #fff;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-            z-index: 10;
-        }
-
-        .window-header {
-            background: #0078D7;
-            color: #fff;
-            padding: 10px;
-            cursor: move;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            height: 100vh;
+            overflow: hidden;
         }
-
-        .window-content {
-            padding: 10px;
+        .sidebar {
+            width: 200px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
         }
-
-        .close-button {
-            background: #f00;
-            color: #fff;
-            border: none;
-            padding: 5px;
-            cursor: pointer;
+        .sidebar a {
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+        .content {
+            flex: 1;
+            background: repeating-linear-gradient(45deg, #f4f4f4, #f4f4f4 10px, #eaeaea 10px, #eaeaea 20px);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .content h1 {
+            margin-top: 0;
         }
     </style>
 </head>
 <body>
-    <div id="desktop">
-        <div id="app-menu">
-            <button id="menu-button">☰</button>
-            <div id="menu">
-                <ul>
-                    <li><a href="#">My Computer</a></li>
-                    <li><a href="#">Recycle Bin</a></li>
-                    <li><a href="#">Settings</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="window" id="window1" style="left: 50px; top: 50px;">
-            <div class="window-header">
-                <span>Window 1</span>
-                <button class="close-button">×</button>
-            </div>
-            <div class="window-content">
-                <p>This is window 1 content.</p>
-            </div>
-        </div>
-
-        <div class="window" id="window2" style="left: 200px; top: 200px;">
-            <div class="window-header">
-                <span>Window 2</span>
-                <button class="close-button">×</button>
-            </div>
-            <div class="window-content">
-                <p>This is window 2 content.</p>
-            </div>
-        </div>
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="https://github.com/mrsofanthiel">My Git</a>
+        <a href="webix.html">Web Linux</a>
+        <a href="egcraft0.html">EaglerCraft Mirror</a>
+        <a href="placeholder.html">Epiccues rehost</a>
     </div>
-
-    <script>
-        // Function to handle dragging of windows
-        function makeDraggable(element) {
-            let isDragging = false;
-            let offsetX, offsetY;
-
-            element.querySelector('.window-header').addEventListener('mousedown', (e) => {
-                isDragging = true;
-                offsetX = e.clientX - element.getBoundingClientRect().left;
-                offsetY = e.clientY - element.getBoundingClientRect().top;
-            });
-
-            window.addEventListener('mousemove', (e) => {
-                if (isDragging) {
-                    element.style.left = `${e.clientX - offsetX}px`;
-                    element.style.top = `${e.clientY - offsetY}px`;
-                }
-            });
-
-            window.addEventListener('mouseup', () => {
-                isDragging = false;
-            });
-        }
-
-        // Initialize draggable windows
-        document.querySelectorAll('.window').forEach(makeDraggable);
-
-        // Handle app menu toggle
-        document.getElementById('menu-button').addEventListener('click', () => {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        });
-
-        // Handle close button
-        document.querySelectorAll('.close-button').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.target.closest('.window').remove();
-            });
-        });
-    </script>
+    <div class="content">
+        <h1>Welcome to my Website!</h1>
+        <p>It's looking a little bland at the moment, but periodically, stuff will get added here soon.<br>Meanwhile, feel free to check out the stuff on the left. You'll find a lot of various stuffs over there.<br>(PS: Most of the stuff over there, I didn't make. Credits are found in the git repo.)</p>
+    </div>
 </body>
 </html>
