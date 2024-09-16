@@ -24,5 +24,3 @@ This project was made by sheeptester and can be found [here.](https://sheepteste
 ## AAAAXY
 This is a link to the online hosted AAAAXY Game that divVerent hosted. It's really good, you should play this game. (Not hosted on this website)
 The Project was made by divVerent and can be found [here.](https://github.com/divVerent/aaaaxy)
-## Learn To Fly 3
-TODO
