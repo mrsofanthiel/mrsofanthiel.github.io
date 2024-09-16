@@ -9,6 +9,9 @@ Yes, this is a skill issue.
 ## Web Linux
 This is a scratch project I converted into a HTML file, so I could have easier access to it on the go.
 The Project was made by bilman66, and can be found [here.](https://scratch.mit.edu/projects/892602496)
+## Linux IDE
+This is a rehost of a very good project, that promised to be available offline, but I coudn't verify that, so just in case, I hosted part of it here.
+The project was made by Remi Sharrock and can be found [here.](https://github.com/remisharrock/remisharrock.github.io)
 ## Eaglercraft
 Duh, you can find this file in a lot of places, just search up "eaglercraft" on github.
 The Project was made by lax1dude.
