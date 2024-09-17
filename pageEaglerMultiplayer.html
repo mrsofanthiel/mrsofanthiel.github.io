@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofanthiel's Hub</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .sidebar a {
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+        .content {
+            flex: 1;
+            background: repeating-linear-gradient(45deg, #f4f4f4, #f4f4f4 10px, #eaeaea 10px, #eaeaea 20px);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .content h1 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Menu</h2> 
+        <a href="/">Return to hub</a>
+        <a href="eaglercraft.html">Take me there</a>
+    </div>
+    <div class="content">
+        <h1>How to play EaglerCraft with Multiplayer</h1>
+        <p>The default eagler relays appear to be disfunctional, which woudn't suprise me. To use a working relay, follow these steps:<br><br>1. Go into Multiplayer when EaglerCraft loads<br>2. In the top right of the screen, it should say "Network options." Click it.<br>3. Click "Add Relay."<br>4. Enter this in the top box:<br>wss://eaglerrelay.glitch.me/<br>5. Name it whatever (in the second box), this will be overwritten when you press ok anyway.<br>6. Change the "Primary Relay" option to "Yes."<br>7. Click "Ok."<br>8. Click "Done."<br><br>After this (and refreshing the server list), you should see servers appear in the server list. Feel free to join any of them.<br>Note: If you want to play with your friends, you will need to be on different Wi-Fi networks. It seems to not like people joining each other from the same network, but if you join some rando's server, you can play with each other. You can start a server by opening a world to LAN, which despite what it claims, makes it publicly accessible to an unlimited player count. (TODO: Check accuracy of statement)<br><br>Have fun!</p>
+    </div>
+</body>
+</html>
